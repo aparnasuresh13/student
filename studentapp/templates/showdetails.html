@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1>Show Product Deatils..</h1>
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>STUDENT ID</th>
+                <th>STUDENT NAME</th>
+                <th>EMAIL</th>
+                <th>PHONE NUMBER</th>
+                <th>ADDRESS</th>
+                <th>IMAGE</th>
+                <th>ACTION..</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in stud %}
+            <tr>
+                <td class="pt-4">{{ s.id }}</td>
+                <td class="pt-4">{{ s.student_name }}</td>
+                <td class="pt-4">{{ s.email }}</td>
+                <td class="pt-4">{{ s.phone_number }}</td>
+                <td class="pt-4">{{ s.address }}</td>
+
+                <td>
+                    {{s.image}}<br>
+                    <img src="{{ students.image.url }}" class="w-25">
+                </td>
+
+                <td><a href="{% url 'editpage' s.id  %}">Edit</a>
+                    <br>
+                    <a href="{% url 'deletepage' s.id  %}">Delete</a>
+                </td>
+            </tr>
+           {% endfor %}                    
+        </tbody>
+    </table>
+</body>
+</html>
